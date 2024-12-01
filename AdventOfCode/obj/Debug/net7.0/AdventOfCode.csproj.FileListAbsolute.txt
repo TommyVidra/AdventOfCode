@@ -1,0 +1,15 @@
+/Users/tomislavvidovic/Documents/Edukacija/C-sharp/AdventOfCode/AdventOfCode/bin/Debug/net7.0/AdventOfCode
+/Users/tomislavvidovic/Documents/Edukacija/C-sharp/AdventOfCode/AdventOfCode/bin/Debug/net7.0/AdventOfCode.deps.json
+/Users/tomislavvidovic/Documents/Edukacija/C-sharp/AdventOfCode/AdventOfCode/bin/Debug/net7.0/AdventOfCode.runtimeconfig.json
+/Users/tomislavvidovic/Documents/Edukacija/C-sharp/AdventOfCode/AdventOfCode/bin/Debug/net7.0/AdventOfCode.dll
+/Users/tomislavvidovic/Documents/Edukacija/C-sharp/AdventOfCode/AdventOfCode/bin/Debug/net7.0/AdventOfCode.pdb
+/Users/tomislavvidovic/Documents/Edukacija/C-sharp/AdventOfCode/AdventOfCode/obj/Debug/net7.0/AdventOfCode.csproj.AssemblyReference.cache
+/Users/tomislavvidovic/Documents/Edukacija/C-sharp/AdventOfCode/AdventOfCode/obj/Debug/net7.0/AdventOfCode.GeneratedMSBuildEditorConfig.editorconfig
+/Users/tomislavvidovic/Documents/Edukacija/C-sharp/AdventOfCode/AdventOfCode/obj/Debug/net7.0/AdventOfCode.AssemblyInfoInputs.cache
+/Users/tomislavvidovic/Documents/Edukacija/C-sharp/AdventOfCode/AdventOfCode/obj/Debug/net7.0/AdventOfCode.AssemblyInfo.cs
+/Users/tomislavvidovic/Documents/Edukacija/C-sharp/AdventOfCode/AdventOfCode/obj/Debug/net7.0/AdventOfCode.csproj.CoreCompileInputs.cache
+/Users/tomislavvidovic/Documents/Edukacija/C-sharp/AdventOfCode/AdventOfCode/obj/Debug/net7.0/AdventOfCode.dll
+/Users/tomislavvidovic/Documents/Edukacija/C-sharp/AdventOfCode/AdventOfCode/obj/Debug/net7.0/refint/AdventOfCode.dll
+/Users/tomislavvidovic/Documents/Edukacija/C-sharp/AdventOfCode/AdventOfCode/obj/Debug/net7.0/AdventOfCode.pdb
+/Users/tomislavvidovic/Documents/Edukacija/C-sharp/AdventOfCode/AdventOfCode/obj/Debug/net7.0/AdventOfCode.genruntimeconfig.cache
+/Users/tomislavvidovic/Documents/Edukacija/C-sharp/AdventOfCode/AdventOfCode/obj/Debug/net7.0/ref/AdventOfCode.dll
