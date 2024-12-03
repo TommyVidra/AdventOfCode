@@ -79,7 +79,7 @@ public class SecondDay
         return safe;
     }
     
-    private static List<List<int>> CalculateSequences(List<List<int>> levels)
+    private static int CalculateSequences(List<List<int>> levels)
     {
         int safeReports = 0;
 
@@ -109,16 +109,7 @@ public class SecondDay
         }
 
         Console.WriteLine(safeReports);
-        return nonSequenceLevels;
-    }
-
-
-    private static List<int> ReturnDuplicateList(List<int> levelsNumeric)
-    {
-        return levelsNumeric.GroupBy(x => x)
-            .Where(g => g.Count() > 1)
-            .Select(y => y.Key)
-            .ToList();
+        return safeReports;
     }
     
     public static List<List<int>> TryRemovingOneElement(List<List<int>> levels)
@@ -140,13 +131,17 @@ public class SecondDay
                 
                 if (!safe)
                 {
-                    // try removing duplicates
-                    var query = ReturnDuplicateList(levelsNumeric);
-                    if (query.Count == 1)
+                    var possibleLevels = new List<List<int>>();
+                    for (int i = 0; i < levelsNumericSorted.Count; i++)
                     {
-                        levelsNumeric.Remove(query[0]);
-                        safe = IsSafeAsc(levelsNumeric);
+                        var possibleList = levelsNumeric.GetRange(0, levelsNumeric.Count);
+                        possibleList.RemoveAt(i);
+                        possibleLevels.Add(possibleList);
                     }
+
+                    var safeCount = CalculateSequences(possibleLevels);
+                    if (safeCount > 0)
+                        safe = true;
                 }
             }
             else
@@ -160,73 +155,38 @@ public class SecondDay
 
                     if (!safe)
                     {
-                        // try removing duplicates
-                        var query = ReturnDuplicateList(levelsNumeric);
-                        if (query.Count == 1)
+                        var possibleLevels = new List<List<int>>();
+                        for (int i = 0; i < levelsNumericSorted.Count; i++)
                         {
-                            levelsNumeric.Remove(query[0]);
-                            safe = IsSafeDesc(levelsNumeric);
+                            var possibleList = levelsNumeric.GetRange(0, levelsNumeric.Count);
+                            possibleList.RemoveAt(i);
+                            possibleLevels.Add(possibleList);
                         }
+
+                        var safeCount = CalculateSequences(possibleLevels);
+                        if (safeCount > 0)
+                            safe = true;
                     }
                 }
                 
                 // Other cases
                 else
                 {
-                    // Remove cases with more than one duplicates
-                    var query = ReturnDuplicateList(levelsNumeric);
-                    if (query.Count > 1)
+                    var possibleLevels = new List<List<int>>();
+                    for (int i = 0; i < levelsNumericSorted.Count; i++)
                     {
-                        safe = false;
-                        continue;
+                        var possibleList = levelsNumeric.GetRange(0, levelsNumeric.Count);
+                        possibleList.RemoveAt(i);
+                        possibleLevels.Add(possibleList);
                     }
 
-                    var AdditionList = new List<int>();
-                    for (int i = 0; i < levelsNumeric.Count(); i++)
-                    {
-                        if (i + 1 == levelsNumeric.Count())
-                            break;
-                        
-                        AdditionList.Add(levelsNumeric[i] - levelsNumeric[i+1]);
-                    }
-
-                    var largerThanZero = AdditionList.Where(i => i > 0);
-                    var lowerThanZero = AdditionList.Where(i => i < 0);
-                    var zeros = AdditionList.Where(i => i == 0);
-
-                    if (largerThanZero.Count() == 2 || lowerThanZero.Count() == 2 || zeros.Count() >= 2 
-                        || zeros.Count() == 1 && lowerThanZero.Count() == 1 || zeros.Count() == 1 && largerThanZero.Count() == 1
-                        || largerThanZero.Count() >= 2 && lowerThanZero.Count() >= 2)
-                    {
-                        safe = false;
-                    }
-                    
-                    /*
+                    var safeCount = CalculateSequences(possibleLevels);
+                    if (safeCount > 0)
+                        safe = true;
                     else
                     {
-
-                        if (largerThanZero.Count() == 1)
-                        {
-                            var largerThanZeroNumber = AdditionList.Where(i => i > 0).First();
-                            var indexInLevels = AdditionList.IndexOf(largerThanZeroNumber) + 1;
-                            levelsNumeric.RemoveAt(indexInLevels);
-
-                            safe = IsSafeAsc(levelsNumeric);
-                        }
-                        else if (lowerThanZero.Count() == 1)
-                        {
-                            var lowerThanZeroNumber = AdditionList.Where(i => i < 0).First();
-                            var indexInLevels = AdditionList.IndexOf(lowerThanZeroNumber) + 1;
-                            levelsNumeric.RemoveAt(indexInLevels);
-
-                            safe = IsSafeDesc(levelsNumeric);
-                        }
-                        else
-                        {
-                            Console.WriteLine(string.Join(" ", AdditionList));
-                            
-                        }
-                    }*/
+                        safe = false; 
+                    }
                 }
             }
             if (safe)
