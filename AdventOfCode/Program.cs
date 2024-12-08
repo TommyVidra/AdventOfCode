@@ -3,6 +3,6 @@
 using AdventOfCode._2024._1stDay;
 using AdventOfCode._2024._2ndDay;
 using AdventOfCode._2024._3rdDay;
+using AdventOfCode._2024._4thDay;
 
-ThirdDay.FirstPart();
-ThirdDay.SecondPart();
+FourthDay.SecondPart();
